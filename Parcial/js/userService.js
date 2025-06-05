@@ -191,7 +191,6 @@ function addUser() {
         .then((response) => {
           if (response.status === 200) {
             document.getElementById('info').innerHTML = '<h3>El usuario se ha registrado!</h3>'
-            console.log("marimba gringa")
           } else {
             document.getElementById('info').innerHTML = '<h3>Error al registrar el usuario</h3>'
           } 
