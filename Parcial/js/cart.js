@@ -22,6 +22,7 @@ function getCarts() {
                 let listcarts = `
               <table class="table">
                   <thead>
+                      <button type="button" class="btn btn-outline-success" onclick="addCarrito()"><i class="fa-solid fa-user-plus"></i></button>
                       <tr>
                       <th scope="col">#</th>
                       <th scope="col">cart ID</th>
@@ -164,7 +165,7 @@ function showModalcart(cart) {
 
 // carrito
 
-function addUser() {
+function addCarrito() {
     const modalUser = `
       <div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-instead="true">
         <div class="modal-dialog modal-sm">
@@ -178,16 +179,16 @@ function addUser() {
                 <div class="card-body">
                   <form id="formAddUser">
                     <div class="mb-3">
-                      <label for="username" class="form-label">Nombre de usuario</label>
-                      <input type="text" class="form-control" id="username" required placeholder="username input">
+                      <label for="userId" class="form-label">Id de usuario</label>
+                      <input type="number" class="form-control" id="userId" required placeholder="userId input">
                     </div>
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email" required placeholder="email input">
+                      <label for="productID" class="form-label">Producto ID</label>
+                      <input type="number" class="form-control" id="productID" required placeholder="productID input">
                     </div>
                     <div class="mb-3">
-                      <label for="password" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="password" required placeholder="password input">
+                      <label for="quantity" class="form-label">Cantidad</label>
+                      <input type="number" class="form-control" id="quantity" required placeholder="quantity input">
                     </div>
                     <div class="mb-3 text-center">
                       <button type="submit" class="btn btn-success" onclick="saveUser()"><i class="fa-solid fa-floppy-disk"></i></button>
@@ -211,15 +212,15 @@ function addUser() {
   function saveUser() {
     const form = document.getElementById('formAddUser');
     if (form.checkValidity()) {
-      const username = document.getElementById('username').value
-      const password = document.getElementById('password').value
-      const email = document.getElementById('email').value
+      const userId = document.getElementById('userId').value
+      const quantity = document.getElementById('quantity').value
+      const productID = document.getElementById('productID').value
+      const productos = [productID, quantity]
       const userData = {
-        username: username,
-        email: email,
-        password: password
+        userId: userId,
+        products: productos
       }
-      fetch("https://fakestoreapi.com/users", {
+      fetch("https://fakestoreapi.com/carts", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -238,9 +239,9 @@ function addUser() {
         })
         .then((response) => {
           if (response.status === 200) {
-            document.getElementById('info').innerHTML = '<h3>El usuario se ha registrado!</h3>'
+            document.getElementById('info').innerHTML = '<h3>El carrito se ha registrado!</h3>'
           } else {
-            document.getElementById('info').innerHTML = '<h3>Error al registrar el usuario</h3>'
+            document.getElementById('info').innerHTML = '<h3>Error al registrar el carrito</h3>'
           } 
           const modal = bootstrap.Modal.getInstance(document.getElementById('modalUser'))
           modal.hide()
