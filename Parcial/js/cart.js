@@ -191,7 +191,7 @@ function addCarrito() {
                       <input type="number" class="form-control" id="quantity" required placeholder="quantity input">
                     </div>
                     <div class="mb-3 text-center">
-                      <button type="submit" class="btn btn-success" onclick="saveUser()"><i class="fa-solid fa-floppy-disk"></i></button>
+                      <button type="submit" class="btn btn-success" onclick="saveCart()"><i class="fa-solid fa-floppy-disk"></i></button>
                     </div>
                   </form>
                 </div>
@@ -209,7 +209,7 @@ function addCarrito() {
     modal.show()
   }
   
-  function saveUser() {
+  function saveCart() {
     const form = document.getElementById('formAddUser');
     if (form.checkValidity()) {
       const userId = document.getElementById('userId').value
