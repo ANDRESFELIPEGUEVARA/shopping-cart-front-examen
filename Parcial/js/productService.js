@@ -1,5 +1,5 @@
 function getProducts() {
-  document.getElementById('cardHeader').innerHTML = '<h4>Listado de productos</h4>'
+  document.getElementById('cardHeader').innerHTML = '<h4 class="placeholder-wave">Listado de productos</h4>'
   document.getElementById('info').innerHTML = ''
   fetch("https://fakestoreapi.com/products", {
       method: "GET",
@@ -24,7 +24,7 @@ function getProducts() {
               listProducts = `
               <table class="table">
                   <thead>
-                      <button type="button" class="btn btn-outline-success" onclick="addProduct()"><i class="fa-solid fa-user-plus"></i></button>
+                      <button type="button" class="btn btn-outline-success" onclick="addProduct()"><i class="fa-solid fa-tags"></i></button>
                       <tr>
                       <th scope="col">#</th>
                       <th scope="col">title</th>

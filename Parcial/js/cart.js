@@ -1,5 +1,5 @@
 function getCarts() {
-    document.getElementById('cardHeader').innerHTML = '<h4>Carrito de compras</h4>'
+    document.getElementById('cardHeader').innerHTML = '<h4 class="placeholder-wave">Carrito de compras</h4>'
     fetch("https://fakestoreapi.com/carts", {
         method: "GET",
         headers: {
@@ -22,7 +22,7 @@ function getCarts() {
                 let listcarts = `
               <table class="table">
                   <thead>
-                      <button type="button" class="btn btn-outline-success" onclick="addCarrito()"><i class="fa-solid fa-user-plus"></i></button>
+                      <button type="button" class="btn btn-outline-success" onclick="addCarrito()"><i class="fa-solid fa-cart-shopping"></i></button>
                       <tr>
                       <th scope="col">#</th>
                       <th scope="col">cart ID</th>
