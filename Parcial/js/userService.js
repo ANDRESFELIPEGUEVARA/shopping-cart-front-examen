@@ -163,7 +163,6 @@ function addUser() {
   function saveUser() {
     const form = document.getElementById('formAddUser');
     if (form.checkValidity()) {
-      const id = document.getElementById('id').value
       const username = document.getElementById('username').value
       const password = document.getElementById('password').value
       const email = document.getElementById('email').value
@@ -192,6 +191,7 @@ function addUser() {
         .then((response) => {
           if (response.status === 200) {
             document.getElementById('info').innerHTML = '<h3>El usuario se ha registrado!</h3>'
+            console.log("marimba gringa")
           } else {
             document.getElementById('info').innerHTML = '<h3>Error al registrar el usuario</h3>'
           } 
