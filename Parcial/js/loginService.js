@@ -26,9 +26,11 @@ function buscar(username, password) {
             message = 'Inicio de sesion exitoso'
             console.log("Ingreso correcto " + response)
             alertBuilder(alertType, message)
+            response.json().then((data)=>{
+                localStorage.setItem('token', data.token)
+            })
             setTimeout(()=> {
                 location.href='admin/dashboard.html'
-
             },1000)
             
         } else {

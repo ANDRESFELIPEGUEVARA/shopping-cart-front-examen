@@ -163,6 +163,7 @@ function addUser() {
   function saveUser() {
     const form = document.getElementById('formAddUser');
     if (form.checkValidity()) {
+      const id = document.getElementById('id').value
       const username = document.getElementById('username').value
       const password = document.getElementById('password').value
       const email = document.getElementById('email').value
